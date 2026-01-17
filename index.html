@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>ID Card Proforma</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+    }
+    .container {
+        width: 800px;
+        margin: auto;
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #000;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 8px;
+        vertical-align: top;
+    }
+    input, textarea {
+        width: 95%;
+        padding: 6px;
+    }
+    .photo-box {
+        width: 150px;
+        height: 180px;
+        border: 1px solid #000;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .photo-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>मध्य प्रदेश पुलिस<br>ID CARD PROFORMA</h2>
+
+<form action="save.php" method="post" enctype="multipart/form-data">
+
+<table>
+<tr>
+<td>1. NAME (IN CAPITAL)</td>
+<td><input type="text" name="name" required></td>
+<td rowspan="5" align="center">
+    <div class="photo-box">
+        <img id="preview" src="">
+    </div>
+    <br>
+    <input type="file" name="photo" accept="image/*" required onchange="previewPhoto(event)">
+</td>
+</tr>
+
+<tr>
+<td>2. DESIGNATION</td>
+<td><input type="text" name="designation"></td>
+</tr>
+
+<tr>
+<td>3. DATE OF BIRTH</td>
+<td><input type="date" name="dob"></td>
+</tr>
+
+<tr>
+<td>4. FATHER / HUSBAND NAME</td>
+<td><input type="text" name="fhname"></td>
+</tr>
+
+<tr>
+<td>5. DATE OF APPOINTMENT</td>
+<td><input type="date" name="appointment"></td>
+</tr>
+
+<tr>
+<td>6. DATE OF RETIREMENT</td>
+<td><input type="date" name="retirement"></td>
+</tr>
+
+<tr>
+<td>7. BLOOD GROUP</td>
+<td><input type="text" name="blood"></td>
+</tr>
+
+<tr>
+<td>8. PPO No.</td>
+<td><input type="text" name="ppo"></td>
+</tr>
+
+<tr>
+<td>9. IDENTIFICATION MARK</td>
+<td><input type="text" name="mark"></td>
+</tr>
+
+<tr>
+<td colspan="2"><b>EMERGENCY CONTACT</b></td>
+</tr>
+
+<tr>
+<td>10. NAME OF NOMINEE</td>
+<td><input type="text" name="nominee"></td>
+</tr>
+
+<tr>
+<td>11. PHONE NO</td>
+<td><input type="text" name="phone"></td>
+</tr>
+
+<tr>
+<td>12. PERMANENT ADDRESS</td>
+<td><textarea name="address"></textarea></td>
+</tr>
+</table>
+
+<br>
+<center>
+<button type="submit">SUBMIT</button>
+</center>
+
+</form>
+</div>
+
+<script>
+function previewPhoto(event) {
+    const img = document.getElementById("preview");
+    img.src = URL.createObjectURL(event.target.files[0]);
+}
+</script>
+
+</body>
+</html>
